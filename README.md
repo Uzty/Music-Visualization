@@ -8,4 +8,4 @@ git clone https://git@github.com:Uzty/Music-Visualization.git
 最后node bin/www 跑起来
 ps:记得在public目录下的media目录下放上你的音乐文件
 
-![image](punlic/images/demo.gif)
+![image](public/images/demo.gif)
