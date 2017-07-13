@@ -16,15 +16,20 @@ var mv = new MusicVisualizer({
     visualizer: draw
 })
 
-lis.forEach(function (v) {
-    v.onclick = function () {
-        lis.forEach(function (li) {
-            li.className = "";
-        })
-        this.className = "selected";
-        mv.play("media/" + this.title);
-    }
-})
+function bindEvent(){
+    var lis = $("#list li");
+    lis.forEach(function (v) {
+        v.onclick = function () {
+            lis.forEach(function (li) {
+                li.className = "";
+            })
+            this.className = "selected";
+            mv.play("media/" + this.title);
+        }
+    })
+}
+bindEvent();
+
 
 /**
  * [isMobile 判断平台]
@@ -144,7 +149,12 @@ $("#add")[0].onclick = function () {
 $("#upload")[0].onchange = function(){
     var file = this.files[0];
     var fr = new FileReader();
-
+    var arr = file.name.split(".")
+    var format = arr[arr.length -1];
+    if(format!="mp3"){
+        alert("只支持MP3格式音乐文件，你还传"+format+"文件，是不是sa (╯‵□′)╯︵┻━┻");
+        return;
+    }
     fr.onload = function (e) {
         mv.play(e.target.result);
     }
@@ -154,10 +164,17 @@ $("#upload")[0].onchange = function(){
     sendForm(form,file,function(res){
         res = JSON.parse(res)
         if(res.status == 100){
+            var lis = $("#list li");
+            lis.forEach(function (li) {
+                li.className = "";
+            })
             var li = document.createElement('li');
             li.title = file.name;
             li.innerHTML = file.name;
+            li.className = "selected";
+
             $("#list")[0].appendChild(li);
+            bindEvent();
         }
     })
 

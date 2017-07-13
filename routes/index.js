@@ -24,7 +24,6 @@ router.post('/upload', function (req, res, next) {
             if (err) {
                 console.log(err)
             }
-        console.log(files.upload,files.upload.name)
         fs.rename(files.upload.path,media + "/"+files.upload.name,function(err){
             if(err){
                 console.error("改名失败"+err);
