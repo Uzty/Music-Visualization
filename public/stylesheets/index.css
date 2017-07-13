@@ -1,0 +1,173 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body{
+  height: 100%;
+}
+body{
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+header,
+.left,
+.right{
+  position: absolute;
+}
+header{
+  left: 10px;
+  top: 10px;
+  right: 10px;
+  height: 150px;
+  border: 1px solid #fff;
+}
+header h1{
+  font-size: 40px;
+  height: 60px;
+  line-height: 60px;
+}
+#add {
+  position: absolute;
+  left: 10px;
+  top: 170px;
+  height: 30px;
+  line-height: 30px;
+  width: 15%;
+  border: 1px solid #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+#upload{
+  position: absolute;
+  left: -2000px;
+}
+#uploadForm{
+  position: absolute;
+  left: -2000px;
+}
+.left{
+  left: 10px;
+  top: 210px;
+  bottom: 10px;
+  width: 15%;
+  border: 1px solid #fff;
+  overflow: auto;
+}
+.left ul{
+
+}
+.left ul li{
+  overflow: hidden;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.left ul li.selected{
+  color: green;
+}
+.right{
+  top:170px;
+  bottom: 10px;
+  left: calc(15% + 20px);
+  right:10px;
+  border: 1px solid #fff;
+}
+
+.type{
+  margin: 0 auto 10px;
+  width: 160px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.type::after{
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+.type li {
+  width: 50%;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  list-style: none;
+}
+.type li.selected {
+  color: #000;
+  background-color: #fff;
+}
+
+input[type="range"]{
+  -webkit-appearance: none;
+  height: 8px;
+  background: #999;
+  border-radius: 10px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  height: 12px;
+  width: 12px;
+  background: #fff;
+  border-radius: 100%;
+}
+
+input[type="range"]::-moz-range-track{
+  height: 8px;
+  background: #999;
+  border-radius: 10px;
+  outline: none;
+}
+
+input[type="range"]::-moz-range-thumb{
+  height: 12px;
+  width: 12px;
+  background: #fff;
+  border: none;
+  border-radius: 100%;
+}
+
+@media screen and (max-width: 800px),screen and (max-height: 500px) {
+  body{
+    font-size: 12px;
+  }
+  header {
+    height: 80px;
+  }
+  #add {
+    top: 100px;
+  }
+  .left{
+    top: 140px;
+  }
+  .right{
+    top: 100px;
+  }
+  header h1 {
+    font-size: 24px;
+    height: 34px;
+    line-height: 34px;
+  }
+  .type{
+    width: 100px;
+  }
+  .type li {
+    height: 16px;
+    line-height: 16px;
+  }
+}
+
